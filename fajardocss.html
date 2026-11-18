@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Light in the Web</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+        header {
+            background-color: navy;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #1e90ff;
+            padding: 15px;
+        }
+
+        nav button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        section {
+            display: none;
+            padding: 30px;
+        }
+
+        #login {
+            display: block;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background-color: navy;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: navy;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<section id="login">
+    <h1>Light in the Web</h1>
+    <h3>Una ang Ginoo</h3>
+
+    <input type="email" id="email"
+    placeholder="Enter Gmail"><br>
+
+    <input type="password" id="password"
+    placeholder="Enter Password"><br>
+
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
+</section>
+
+<!-- WEBSITE -->
+<div id="website" style="display:none;">
+
+<header>
+    <h1>LIGHT IN THE WEB</h1>
+    <p>Una ang Ginoo - God First</p>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('reflection')">Reflection</button>
+    <button onclick="showPage('community')">Community</button>
+    <button onclick="showPage('portfolio')">Portfolio</button>
+    <button onclick="showPage('education')">Education</button>
+    <button onclick="showPage('faith')">Faith & Technology</button>
+    <button onclick="logout()">Logout</button>
+</nav>
+
+<section id="home">
+    <h2>Welcome!</h2>
+    <p>Let your light shine before others.</p>
+    <p>Matthew 5:16</p>
+</section>
+
+<section id="reflection">
+    <h2>Personal Reflection</h2>
+    <p>
+        Faith teaches us to be honest, kind,
+        respectful, and responsible.
+        We should always put God first
+        in everything we do.
+    </p>
+</section>
+
+<section id="community">
+    <h2>Community Service</h2>
+    <p>
+        Helping others makes our community
+        better. We can help through charity,
+        cleaning activities, and volunteering.
+    </p>
+</section>
+
+<section id="portfolio">
+    <h2>My Portfolio</h2>
+    <img src="c:\Users\Admin\Desktop\profile.jpg" class="width: 50px;
+    height: 50px;
+    object-fit: cover;">
+    
+    
+    <p>Name:Vaughn Denzel Fajardo</p>
+    <p>Course: BS Computer Science</p>
+    <p>Goal: To become a successful programmer.</p>
+    <p>Values: Faith, Honesty, and Respect.</p>
+</section>
+
+<section id="education">
+    <h2>Digital Responsibility</h2>
+    <p>
+        Always respect others online.
+        Avoid fake news, cyberbullying,
+        and copying other people's work.
+    </p>
+</section>
+
+<section id="faith">
+    <h2>Faith and Technology</h2>
+    <p>
+        We can use technology to share
+        God's word, inspirational messages,
+        and positive information.
+    </p>
+</section>
+
+<footer>
+    <p>Light in the Web | God First</p>
+</footer>
+
+</div>
+
+<script>
+
+function login() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if (email == "wolfprime759@gmail.com" &&
+        password == "vdf112006") {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("website").style.display = "block";
+
+        showPage("home");
+
+    } else {
+        document.getElementById("message").innerHTML =
+        "Incorrect Gmail or Password!";
+    }
+}
+
+function showPage(page) {
+    var sections = document.querySelectorAll("#website section");
+
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+    }
+
+    document.getElementById(page).style.display = "block";
+}
+
+function logout() {
+    document.getElementById("website").style.display = "none";
+    document.getElementById("login").style.display = "block";
+
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("message").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>
